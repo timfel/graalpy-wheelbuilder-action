@@ -290,4 +290,4 @@ RUN su builder -c 'mkdir -p /rusthome/.config/fish/conf.d/' && \
 ENV PATH="/rusthome/.cargo/bin:${PATH}"
 
 COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--", "/entrypoint.sh"]
