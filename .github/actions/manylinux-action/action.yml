@@ -1,0 +1,15 @@
+name: 'GraalPy wheel builder'
+description: 'An image with dependencies to build manylinux wheels for GraalPy'
+inputs:
+  package:
+    description: 'Package to build'
+    required: true
+  graalpy_version:
+    description: 'Version of GraalPy to build for'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.package }}
+    - ${{ inputs.graalpy_version }}
